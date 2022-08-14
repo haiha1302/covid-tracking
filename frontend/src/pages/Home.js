@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import http from '../utils';
 import Countries from '../Components/Countries/Countries';
-import styled from 'styled-components';
 import CardTotal from '../Components/Card/CardTotal';
+import styled from 'styled-components';
+import http from '../utils';
 
 const Home = () => {
     const [latest, setLatest] = useState([]);

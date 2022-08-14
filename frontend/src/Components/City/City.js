@@ -1,8 +1,8 @@
 import { useState } from "react"
 import NumberFormat from "react-number-format"
+import SearchInput from "../SearchInput/SearchInput"
 import { Table } from "react-bootstrap"
 import styled from "styled-components"
-import SearchInput from "../SearchInput/SearchInput"
 
 const City = (props) => {
     const [searchLocations, setSearchDataLocations] = useState('')

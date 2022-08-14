@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import CardTotal from '../Components/Card/CardTotal'
-import styled from 'styled-components';
 import City from '../Components/City/City';
+import styled from 'styled-components';
 import http from '../utils'
 
 const AboutVN = () => {

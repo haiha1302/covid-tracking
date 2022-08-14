@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table'
-import styled from 'styled-components';
 import NumberFormat from 'react-number-format';
 import SearchInput from '../SearchInput/SearchInput';
+import Table from 'react-bootstrap/Table'
+import styled from 'styled-components';
 import http from '../../utils'
 
 const Countries = () => {
@@ -11,7 +11,7 @@ const Countries = () => {
 
     const getDataCountries = async () => {
         const results = await http.get('/api/countries')
-        setDataCountries(results.data)
+        setDataCountries(results.data.Countries)
     }
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Countries = () => {
     }, [])
 
     const filterCountries = dataCountries.filter((item) => {
-        return searchCountries !== '' ? item.country.toLowerCase().includes(searchCountries.toLowerCase()) : item
+        return searchCountries !== '' ? item.Country.toLowerCase().includes(searchCountries.toLowerCase()) : item
     })
 
     return (
@@ -45,34 +45,34 @@ const Countries = () => {
                     </tr>
                 </thead>
                 {
-                    filterCountries.map((data, idx) => {
+                    filterCountries.map((data) => {
                         return (
-                            <tbody key={idx}>
+                            <tbody key={data.ID}>
                                 <tr>
-                                    <td><img alt='flag' src={data.countryInfo.flag} style={{'width': '50px', 'height': '33px'}}></img></td>
-                                    <td>{data.country}</td>
+                                    <td><img alt='flag' src={`https://countryflagsapi.com/png/${data.Slug}`} style={{'width': '50px', 'height': '33px'}}></img></td>
+                                    <td>{data.Country}</td>
                                     <td><NumberFormat
-                                            value={data.cases}
+                                            value={data.TotalConfirmed}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                     <td><NumberFormat
-                                            value={data.recovered}
+                                            value={data.TotalRecovered}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                     <td><NumberFormat
-                                            value={data.deaths}
+                                            value={data.TotalDeaths}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                     <td><NumberFormat
-                                            value={data.todayCases}
+                                            value={data.NewConfirmed}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                     <td><NumberFormat
-                                            value={data.todayDeaths}
+                                            value={data.NewDeaths}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                     <td><NumberFormat
-                                            value={data.todayRecovered}
+                                            value={data.NewRecovered}
                                             displayType={'text'}
                                             thousandSeparator={true} /></td>
                                 </tr>

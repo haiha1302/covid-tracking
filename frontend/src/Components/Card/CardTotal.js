@@ -1,5 +1,5 @@
-import Card from 'react-bootstrap/Card'
 import NumberFormat from 'react-number-format'
+import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup';
 import styled from 'styled-components'
 

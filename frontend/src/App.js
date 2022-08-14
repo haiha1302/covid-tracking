@@ -1,9 +1,9 @@
-import './App.css';
-import Home from './pages/Home';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Menu from './Components/Menu/Menu'
+import Home from './pages/Home';
 import Footer from './Footer';
 import AboutVN from './pages/AboutVN';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css';
 
 function App() {
   return (
